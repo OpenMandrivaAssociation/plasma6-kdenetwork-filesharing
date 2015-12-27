@@ -6,33 +6,33 @@ Epoch:		3
 License:	GPLv2+
 Group:		Graphical desktop/KDE
 Url:		http://www.kde.org
-%define is_beta %(if test `echo %{version} |cut -d. -f3` -ge 70; then echo -n 1; else echo -n 0; fi)
-%if %{is_beta}
-%define ftpdir unstable
-%else
-%define ftpdir stable
-%endif
 Source0:	http://download.kde.org/stable/applications/%{version}/src/%{name}-%{version}.tar.xz
-BuildRequires:	kdelibs4-devel
+BuildRequires:	cmake(ECM)
+BuildRequires:	cmake(KF5DocTools)
+BuildRequires:	cmake(KF5CoreAddons)
+BuildRequires:	cmake(KF5I18n)
+BuildRequires:	cmake(KF5KIO)
+BuildRequires:	cmake(KF5WidgetsAddons)
+BuildRequires:	pkgconfig(Qt5Core)
+BuildRequires:	pkgconfig(Qt5Widgets)
 Conflicts:	kde4-filesharing < 3:4.11.0
 Obsoletes:	kde4-filesharing < 3:4.11.0
+Requires:	samba-client
 
 %description
 Samba filesharing dialog for KDE4.
 
 %files
-%{_kde_libdir}/kde4/sambausershareplugin.so
-%{_kde_services}/sambausershareplugin.desktop
 
 #-------------------------------------------
 
 %prep
 %setup -q
+%cmake_kde5 -DSAMBA_INSTALL=OFF
 
 %build
-%cmake_kde4 -DCMAKE_MINIMUM_REQUIRED_VERSION=2.6
-%make
+%ninja -C build
 
 %install
-%makeinstall_std -C build
+%ninja_install -C build
 
