@@ -23,6 +23,8 @@ Requires:	samba-client
 Samba filesharing dialog for KDE4.
 
 %files
+%{_libdir}/qt5/plugins/sambausershareplugin.so
+%{_datadir}/kservices5/sambausershareplugin.desktop
 
 #-------------------------------------------
 
