@@ -1,6 +1,6 @@
 Summary:	Samba filesharing dialog for KDE4
 Name:		kdenetwork-filesharing
-Version:	15.12.1
+Version:	15.12.2
 Release:	1
 Epoch:		3
 License:	GPLv2+
