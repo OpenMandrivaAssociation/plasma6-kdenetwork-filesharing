@@ -1,2 +1,4 @@
-sources:
+removed_sources:
   kdenetwork-filesharing-17.12.1.tar.xz: 929335dadb8a36559eaff4364bb37f3c633da947
+sources:
+  kdenetwork-filesharing-17.12.2.tar.xz: 25c989eb1ea8d4ea2df0ea9349bd25b5d5c52931
