@@ -1,6 +1,6 @@
 Summary:	Samba filesharing dialog for KDE4
 Name:		kdenetwork-filesharing
-Version:	19.08.3
+Version:	19.11.80
 Release:	1
 Epoch:		3
 License:	GPLv2+
@@ -26,6 +26,7 @@ Samba filesharing dialog for KDE5.
 %files -f kfileshare.lang
 %{_libdir}/qt5/plugins/sambausershareplugin.so
 %{_datadir}/kservices5/sambausershareplugin.desktop
+%{_datadir}/metainfo/org.kde.kdenetwork-filesharing.metainfo.xml
 
 #-------------------------------------------
 
