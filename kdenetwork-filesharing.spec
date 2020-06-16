@@ -1,7 +1,7 @@
 Summary:	Samba filesharing dialog for KDE4
 Name:		kdenetwork-filesharing
 Version:	20.04.2
-Release:	1
+Release:	2
 Epoch:		3
 License:	GPLv2+
 Group:		Graphical desktop/KDE
@@ -16,6 +16,7 @@ BuildRequires:	cmake(KF5KIO)
 BuildRequires:	cmake(KF5WidgetsAddons)
 BuildRequires:	pkgconfig(Qt5Core)
 BuildRequires:	pkgconfig(Qt5Widgets)
+BuildRequires:	cmake(packagekitqt5)
 Conflicts:	kde4-filesharing < 3:4.11.0
 Obsoletes:	kde4-filesharing < 3:4.11.0
 Requires:	samba-client
