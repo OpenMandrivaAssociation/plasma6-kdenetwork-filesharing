@@ -16,6 +16,7 @@ BuildRequires:	cmake(KF5KIO)
 BuildRequires:	cmake(KF5WidgetsAddons)
 BuildRequires:	pkgconfig(Qt5Core)
 BuildRequires:	pkgconfig(Qt5Widgets)
+BuildRequires:	pkgconfig(Qt5QuickWidgets)
 BuildRequires:	cmake(packagekitqt5)
 Conflicts:	kde4-filesharing < 3:4.11.0
 Obsoletes:	kde4-filesharing < 3:4.11.0
