@@ -3,7 +3,7 @@
 Summary:	Samba filesharing dialog for KDE5
 Name:		kdenetwork-filesharing
 Version:	23.08.4
-Release:	2
+Release:	3
 Epoch:		3
 License:	GPLv2+
 Group:		Graphical desktop/KDE
