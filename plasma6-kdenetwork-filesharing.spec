@@ -9,6 +9,7 @@ Group:		Graphical desktop/KDE
 Url:		http://www.kde.org
 Source0:	http://download.kde.org/%{stable}/release-service/%{version}/src/kdenetwork-filesharing-%{version}.tar.xz
 BuildRequires:	cmake(ECM)
+BuildRequires:	cmake(KF6Auth)
 BuildRequires:	cmake(KF6DocTools)
 BuildRequires:	cmake(KF6CoreAddons)
 BuildRequires:	cmake(KF6I18n)
@@ -16,10 +17,13 @@ BuildRequires:	cmake(KF6KIO)
 BuildRequires:	cmake(KF6WidgetsAddons)
 BuildRequires:	cmake(KF6Declarative)
 BuildRequires:	pkgconfig(Qt6Core)
+BuildRequires:  cmake(Qt6QmlCore)
+BuildRequires:  cmake(Qt6QmlNetwork)
 BuildRequires:	pkgconfig(Qt6Widgets)
 BuildRequires:	pkgconfig(Qt6QuickWidgets)
 BuildRequires:	cmake(QCoro6)
 BuildRequires:	cmake(packagekitqt6)
+BuildRequires:  qt6-qtbase-theme-gtk3
 BuildRequires:	samba-client
 Requires:	samba-client
 
