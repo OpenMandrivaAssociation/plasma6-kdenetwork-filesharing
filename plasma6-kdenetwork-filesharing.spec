@@ -1,13 +1,20 @@
+%define git 20240218
+%define gitbranch release/24.02
+%define gitbranchd %(echo %{gitbranch} |sed -e "s,/,-,g")
 %define stable %([ "$(echo %{version} |cut -d. -f3)" -ge 80 ] && echo -n un; echo -n stable)
 
 Summary:	Samba filesharing dialog for KDE6
 Name:		plasma6-kdenetwork-filesharing
-Version:	24.01.95
-Release:	1
+Version:	24.01.96
+Release:	%{?git:0.%{git}.}1
 License:	GPLv2+
 Group:		Graphical desktop/KDE
 Url:		http://www.kde.org
+%if 0%{?git:1}
+Source0:	https://invent.kde.org/network/kdenetwork-filesharing/-/archive/%{gitbranch}/kdenetwork-filesharing-%{gitbranchd}.tar.bz2#/kdenetwork-filesharing-%{git}.tar.bz2
+%else
 Source0:	http://download.kde.org/%{stable}/release-service/%{version}/src/kdenetwork-filesharing-%{version}.tar.xz
+%endif
 BuildRequires:	cmake(ECM)
 BuildRequires:	cmake(KF6Auth)
 BuildRequires:	cmake(KF6DocTools)
@@ -42,7 +49,7 @@ Samba filesharing dialog for KDE6.
 #-------------------------------------------
 
 %prep
-%autosetup -p1 -n kdenetwork-filesharing-%{?git:master}%{!?git:%{version}}
+%autosetup -p1 -n kdenetwork-filesharing-%{?git:%{gitbranchd}}%{!?git:%{version}}
 %cmake \
 	-DKDE_INSTALL_USE_QT_SYS_PATHS:BOOL=ON \
 	-G Ninja -DSAMBA_INSTALL=OFF
