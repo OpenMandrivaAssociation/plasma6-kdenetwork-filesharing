@@ -6,7 +6,7 @@
 Summary:	Samba filesharing dialog for KDE6
 Name:		plasma6-kdenetwork-filesharing
 Version:	24.02.0
-Release:	%{?git:0.%{git}.}1
+Release:	%{?git:0.%{git}.}2
 License:	GPLv2+
 Group:		Graphical desktop/KDE
 Url:		http://www.kde.org
@@ -30,7 +30,6 @@ BuildRequires:	pkgconfig(Qt6Widgets)
 BuildRequires:	pkgconfig(Qt6QuickWidgets)
 BuildRequires:	cmake(QCoro6)
 BuildRequires:	cmake(packagekitqt6)
-BuildRequires:  qt6-qtbase-theme-gtk3
 BuildRequires:	samba-client
 Requires:	samba-client
 
@@ -52,7 +51,9 @@ Samba filesharing dialog for KDE6.
 %autosetup -p1 -n kdenetwork-filesharing-%{?git:%{gitbranchd}}%{!?git:%{version}}
 %cmake \
 	-DKDE_INSTALL_USE_QT_SYS_PATHS:BOOL=ON \
-	-G Ninja -DSAMBA_INSTALL=OFF
+	-DSAMBA_INSTALL=ON \
+	-DSAMBA_PACKAGE_NAME=\"samba-client,samba-server\" \
+	-G Ninja
 
 %build
 %ninja -C build
