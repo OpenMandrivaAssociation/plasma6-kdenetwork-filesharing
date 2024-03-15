@@ -6,7 +6,7 @@
 Summary:	Samba filesharing dialog for KDE6
 Name:		plasma6-kdenetwork-filesharing
 Version:	24.02.0
-Release:	%{?git:0.%{git}.}2
+Release:	%{?git:0.%{git}.}3
 License:	GPLv2+
 Group:		Graphical desktop/KDE
 Url:		http://www.kde.org
