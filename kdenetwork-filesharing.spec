@@ -4,7 +4,7 @@
 %define stable %([ "$(echo %{version} |cut -d. -f3)" -ge 80 ] && echo -n un; echo -n stable)
 
 Summary:	Samba filesharing dialog for KDE6
-Name:		plasma6-kdenetwork-filesharing
+Name:		kdenetwork-filesharing
 Version:	25.04.0
 Release:	%{?git:0.%{git}.}1
 License:	GPLv2+
