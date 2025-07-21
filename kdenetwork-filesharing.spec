@@ -5,7 +5,7 @@
 
 Summary:	Samba filesharing dialog for KDE6
 Name:		kdenetwork-filesharing
-Version:	25.04.0
+Version:	25.04.3
 Release:	%{?git:0.%{git}.}1
 License:	GPLv2+
 Group:		Graphical desktop/KDE
@@ -33,10 +33,17 @@ BuildRequires:	cmake(packagekitqt6)
 BuildRequires:	samba-client
 Requires:	samba-client
 
+%rename plasma6-kdenetwork-filesharing
+
+BuildSystem:	cmake
+BuildOption:	-DKDE_INSTALL_USE_QT_SYS_PATHS:BOOL=ON
+BuildOption:	-DSAMBA_INSTALL=ON
+BuildOption:	-DSAMBA_PACKAGE_NAME=\"samba-client,samba-server\"
+
 %description
 Samba filesharing dialog for KDE6.
 
-%files -f kfileshare.lang
+%files -f %{name}.lang
 %{_libdir}/qt6/plugins/kf6/propertiesdialog/sambausershareplugin.so
 %{_libdir}/qt6/plugins/kf6/propertiesdialog/SambaAcl.so
 %{_datadir}/metainfo/org.kde.kdenetwork-filesharing.metainfo.xml
@@ -44,20 +51,3 @@ Samba filesharing dialog for KDE6.
 %{_datadir}/dbus-1/system-services/org.kde.filesharing.samba.service
 %{_datadir}/dbus-1/system.d/org.kde.filesharing.samba.conf
 %{_datadir}/polkit-1/actions/org.kde.filesharing.samba.policy
-
-#-------------------------------------------
-
-%prep
-%autosetup -p1 -n kdenetwork-filesharing-%{?git:%{gitbranchd}}%{!?git:%{version}}
-%cmake \
-	-DKDE_INSTALL_USE_QT_SYS_PATHS:BOOL=ON \
-	-DSAMBA_INSTALL=ON \
-	-DSAMBA_PACKAGE_NAME=\"samba-client,samba-server\" \
-	-G Ninja
-
-%build
-%ninja -C build
-
-%install
-%ninja_install -C build
-%find_lang kfileshare --with-html
